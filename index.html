@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Planilha Financeira Multi-Mês</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- jsPDF e AutoTable -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.1/jspdf.plugin.autotable.min.js"></script>
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<div class="container">
+  <h1>Planilha de Despesas Financeiras</h1>
+
+  <div id="mesesContainer">
+    <div class="mesSection">
+      <label>Mês:</label>
+      <input type="month" value="2025-09">
+
+      <h2>Receitas</h2>
+      <table class="tabelaReceitas">
+        <thead>
+          <tr><th>Data</th><th>Descrição</th><th>Categoria</th><th>Valor (R$)</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <button type="button" onclick="adicionarLinha(this)">+ Receita</button>
+
+      <h2>Despesas</h2>
+      <table class="tabelaDespesas">
+        <thead>
+          <tr><th>Data</th><th>Descrição</th><th>Categoria</th><th>Forma de Pagamento</th><th>Valor (R$)</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <button type="button" onclick="adicionarLinha(this)">+ Despesa</button>
+      <hr>
+    </div>
+  </div>
+
+  <button id="btnAddMes">Adicionar Mês</button>
+  <button id="btnGerar">Gerar PDF</button>
+
+  <!-- Canvas invisível para gráficos -->
+  <canvas id="graficoDespesas" width="400" height="400" style="display:none;"></canvas>
+  <canvas id="graficoComparativo" width="400" height="400" style="display:none;"></canvas>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
